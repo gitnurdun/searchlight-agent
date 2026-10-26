@@ -1,0 +1,14 @@
+{
+  "host": "127.0.0.1",
+  "port": 4321,
+  "ollamaUrl": "http://127.0.0.1:11434",
+  "chatModel": "qwen3:1.7b",
+  "embeddingModel": "qwen3-embedding:0.6b",
+  "downloadDirectory": "./.data/downloads",
+  "externalSearxngUrl": "",
+  "allowAgentIndexing": false,
+  "allowAgentDownloads": false,
+  "readRoots": [
+    "./workspace"
+  ]
+}

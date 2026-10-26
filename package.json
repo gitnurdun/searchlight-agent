@@ -1,0 +1,52 @@
+{
+  "name": "local-qwen-search-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"tsx watch apps/server/src/index.ts\" \"vite --config apps/web/vite.config.ts\"",
+    "start": "node dist/apps/server/src/index.js",
+    "serve": "tsx apps/server/src/index.ts",
+    "stop": "tsx scripts/stop.ts",
+    "build": "npm run build:web && npm run build:server",
+    "build:web": "vite build --config apps/web/vite.config.ts",
+    "build:server": "tsc -p tsconfig.server.json",
+    "doctor": "tsx scripts/doctor.ts",
+    "setup:embedding": "ollama pull qwen3-embedding:0.6b",
+    "mcp:stdio": "tsx packages/mcp/src/stdio.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@fastify/static": "^10.1.6",
+    "@fastify/swagger": "^9.6.1",
+    "@fastify/swagger-ui": "^6.1.2",
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@mozilla/readability": "^0.6.0",
+    "cheerio": "^1.1.2",
+    "chokidar": "^4.0.3",
+    "fast-xml-parser": "^5.3.3",
+    "fastify": "^5.7.4",
+    "file-type": "^21.3.0",
+    "linkedom": "^0.18.12",
+    "playwright-core": "^1.58.2",
+    "robots-parser": "^3.0.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "concurrently": "^9.2.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}
